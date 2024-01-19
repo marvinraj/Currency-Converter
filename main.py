@@ -28,20 +28,31 @@ def display_currency(data):
 
     print(f"\n{amount_input} {curr_from} = {amount_output} {curr_to}")
     print("exchange rate: ", exchange_rate)
+    
 
+# main function - all other functions get called here
 def main():
-    intro()
 
-    payload = {}
-    headers= {
-    "apikey": "KzZhNBVZjjfCndOUdbjTxhKu5FgAI9rp"
-    }
+    while True:
+        intro()
+        
+        payload = {}
+        headers= {
+        "apikey": "KzZhNBVZjjfCndOUdbjTxhKu5FgAI9rp"
+        }
 
-    from_curr = input("1. Currency to convert from (myr,usd,etc): ")
-    to_curr = input("2. Currency to convert to (myr,usd,etc): ")
-    amount = input("3. Enter amount: ")
+        from_curr = input("1. Currency to convert from (myr,usd,etc): ")
+        to_curr = input("2. Currency to convert to (myr,usd,etc): ")
+        amount = input("3. Enter amount: ")
 
-    get_currency(payload, headers, from_curr, to_curr, amount)
+        get_currency(payload, headers, from_curr, to_curr, amount)
+
+        cont = input("\nWould you like to continue converting? yes(y) or no(n) : ")
+        if cont == "y":
+            continue
+        elif cont == "n":
+            print("\nExiting currency converter...")
+            break
 
 
 if __name__ == "__main__":
